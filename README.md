@@ -35,6 +35,7 @@ If you are testing or developing, use test keys. When you go live don't forget t
 - Setup unit testing (simpletest?)
 - Better error handling
 - Centralize all settings in config.php
+- Better documentation
 
 
 
