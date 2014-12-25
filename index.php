@@ -11,6 +11,23 @@
 	<!-- Bootstrap -->
 	<link href="vendor/twitter/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	
+	<!-- Custom styles -->
+	<style>
+		body {
+			background-color:#eee;
+		}
+		.help-btn {
+			padding-top:3px;
+		}
+		.form-control-feedback {
+			margin-top:6px;
+		}
+		input[type="radio"], 
+		input[type="checkbox"] {
+    		margin: 6px 0 0 0;
+    	}
+	</style>
+	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -18,10 +35,10 @@
 	<script src="vendor/rogeriopradoj/respond/dest/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body style="background-color:#eee;">
+<body>
 
 
-<!-- -----------------------
+<!-- =======================
 ---- Content
 ------------------------ -->
 
@@ -49,33 +66,25 @@
 					method="post" 
 					role="form">
 				  
-				  <div class="form-group" id="instructions">
-					<div class="col-md-8 col-sm-11 col-md-offset-2">
-
-						<div class="alert alert-danger" id="errors" style="display:none;" role="alert"></div>						
-					</div>
-				  </div>
-				  <div class="form-group form-group-lg">
-					<label class="control-label col-md-2" for="inputName">Full Name</label>
+				  <div class="form-group form-group-lg has-feedback">
+					<label for="inputName" class="col-md-2 control-label">Full Name</label>
 					<div class="col-md-8 col-sm-11">
-						<div class="input-group">
 						
-							<input 
-								type="text" 
-								class="form-control" 
-								id="inputName" 
-								data-validation="required"
-								tabindex="1"
-								placeholder="Ben Fletcher">
-							
-							<span class="input-group-addon" title="Required"><span class="glyphicon glyphicon-asterisk"></span></span>
-						</div>
+						<input 
+							type="text" 
+							class="form-control" 
+							id="inputName" 
+							data-validation="required"
+							tabindex="1"
+							placeholder="Ben Fletcher">
+						
+						<span class="glyphicon glyphicon-asterisk form-control-feedback"></span>				
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
 					</div>
 				  </div>
-				  <div class="form-group form-group-lg">
+				  <div class="form-group form-group-lg has-feedback">
 					<label for="inputEmail" class="col-md-2 control-label">Email</label>
 					<div class="col-md-8 col-sm-11">
 					
@@ -88,13 +97,14 @@
 							data-validation="email" 
 							tabindex="2"
 							placeholder="email@service.com">
-						
+							
+						<span class="glyphicon form-control-feedback"></span>						
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
 					</div>
 				  </div>
-				  <div class="form-group form-group-lg">
+				  <div class="form-group form-group-lg has-feedback">
 					<label for="inputPhone" class="col-md-2 control-label">Phone</label>
 					<div class="col-md-8 col-sm-11">
 					
@@ -109,15 +119,14 @@
 							data-validation-regexp="^[0-9]{3}[-. ]?[0-9]{3}[-. ]?[0-9]{4}$"
 							placeholder="123-456-7890">
 						
+						<span class="glyphicon form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
 					</div>
 				  </div>			  
 				  <div class="form-group form-group-lg has-feedback">
-					<label class="control-label col-md-2" for="inputXNum">
-						X Number
-					</label>
+					<label class="control-label col-md-2" for="inputXNum">X Number</label>
 					<div class="col-md-8 col-sm-11">
 
 						<input 
@@ -130,29 +139,32 @@
 							data-validation-regexp="^(x|X)?[0-9]{6}$"
 							tabindex="4"
 							placeholder="X123456">
-
+						
+						<span class="glyphicon form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
-						<h4 style="padding-top:3px;"><a href="#" data-toggle="modal" data-target="#XNumModal"><span class="glyphicon glyphicon-question-sign"></span></a></h4>
+						<h4 class="help-btn">
+							<a href="#" data-toggle="modal" data-target="#XNumModal">
+								<span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+						</h4>
 					</div>
 				  </div>
 				  <hr>
-				  <div class="form-group form-group-lg">
+				  <div class="form-group form-group-lg has-feedback">
 					<label class="control-label col-md-2" for="inputCardNum">Card Number</label>
 					<div class="col-md-8 col-sm-11">
-						<div class="input-group">
 							
-							<input 
-								type="text" 
-								class="form-control" 
-								id="inputCardNum" 
-								data-validation="credit_card_number"
-								tabindex="5"
-								autocomplete="off"
-								placeholder="1234-1234-1234-1234">
+						<input 
+							type="text" 
+							class="form-control" 
+							id="inputCardNum" 
+							data-validation="credit_card_number"
+							tabindex="5"
+							autocomplete="off"
+							placeholder="1234-1234-1234-1234">
 								
-							<span class="input-group-addon" title="Required"><span class="glyphicon glyphicon-asterisk"></span></span>
-						</div>
+						<span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
@@ -162,19 +174,17 @@
 				  <div class="form-group form-group-lg has-feedback">
 					<label class="control-label col-md-2" for="inputExpiration">Expiration</label>
 					<div class="col-md-3 col-sm-11">
-						<div class="input-group">
 					
-							<input 
-								type="text" 
-								class="form-control" 
-								id="inputExpiration" 
-								data-validation="credit_card_expiry" 
-								tabindex="6"
-								autocomplete="off"
-								placeholder="MM/YYYY">
+						<input 
+							type="text" 
+							class="form-control" 
+							id="inputExpiration" 
+							data-validation="credit_card_expiry" 
+							tabindex="6"
+							autocomplete="off"
+							placeholder="MM/YYYY">
 						
-							<span class="input-group-addon" title="Required"><span class="glyphicon glyphicon-asterisk"></span></span>
-						</div>
+						<span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
 					</div>
 					<div class="col-sm-1 hidden-lg hidden-md hidden-xs">
 						&nbsp;
@@ -183,23 +193,25 @@
 					<label class="control-label col-md-2 hidden-sm" for="inputCVC"><br class="visible-xs-block">CVC</label>
 					<div class="visible-sm-block col-sm-10"><br><strong>CVC</strong></div> <!-- Hack to fix alignent on small screens -->
 					<div class="col-md-3 col-sm-11">
-						<div class="input-group">
 							
-							<input 
-								type="text" 
-								class="form-control" 
-								id="inputCVC" 
-								data-validation="custom"
-								data-validation-regexp="^[0-9]{3}$"
-								tabindex="7"
-								autocomplete="off"
-								placeholder="123">
+						<input 
+							type="text" 
+							class="form-control" 
+							id="inputCVC" 
+							data-validation="custom"
+							data-validation-regexp="^[0-9]{3}$"
+							tabindex="7"
+							autocomplete="off"
+							placeholder="123">
 					  
-							<span class="input-group-addon" title="Required"><span class="glyphicon glyphicon-asterisk"></span></span>
-						</div>
+						<span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
-						<h4 style="padding-top:3px;"><a href="#" data-toggle="modal" data-target="#CVCModal"><span class="glyphicon glyphicon-question-sign"></span></a></h4>
+						<h4 class="help-btn">
+							<a href="#" data-toggle="modal" data-target="#CVCModal">
+								<span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+						</h4>
 					</div>
 				  </div>				  
 				  <div class="form-group form-group-lg">
@@ -215,34 +227,40 @@
 					
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
-						<h4 style="padding-top:3px;"><a href="#" data-toggle="modal" data-target="#DuesAmountModal"><span class="glyphicon glyphicon-question-sign"></span></a></h4>
+						<h4 class="help-btn">
+							<a href="#" data-toggle="modal" data-target="#DuesAmountModal">
+								<span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+						</h4>
 					</div>
 				  </div>
 				  <div class="form-group form-group-lg">
 					<label for="recurrance" class="col-sm-2 control-label">&nbsp;</label>
 					<div class="cols-md-offset-2 col-md-8">
-						<div class="btn-group btn-group-lg" style="width:100%">						
-							<label class="btn btn-default" style="width:50%">
+						<div class="btn-group btn-group-lg radio-segmented" style="width:100%">
+							<label class="btn btn-default" for="recurring" style="width:50%">
 							
-								<input 
-									type="radio" 
-									id="recurring" 
-									name="radioRecurrance" 
-									value="1" 
+								<input
+									type="radio"
+									class="pull-left"
+									id="recurring"
+									name="radioRecurrance"
+									value="1"
 									tabindex="9"
 									checked> Recurring
-									
+								  
 							</label>
-							<label class="btn btn-default" style="width:50%">
-							
-								<input 
-									type="radio" 
-									id="one-time"
-									name="radioRecurrance" 									
-									tabindex="10"
-									value="0"> One Time							
-									
-							</label>						
+							<label class="btn btn-default" for="one-time" style="width:50%">
+								
+								  <input
+								  	type="radio"
+								  	class="pull-right"
+								  	id="one-time"
+								  	name="radioRecurrance"
+								  	tabindex="10"
+								  	value="0"> One Time
+								  
+							</label>
 						</div>
 					</div>
 					<div class="col-md-2 hidden-xs">
@@ -252,7 +270,9 @@
 				  <hr>
 				  <div class="form-group form-group-lg">
 					<div class="col-md-offset-2 col-md-8">					
-						<button type="submit" class="btn btn-lg btn-primary btn-block" id="submit-btn" tabindex="11">Start Membership</button>		
+						<button type="submit" class="btn btn-lg btn-primary btn-block" id="submit-btn" tabindex="11">
+							<?php echo $submit_btn; ?>	
+						</button>		
 					</div>
 					<div class="col-md-2 hidden-xs">
 						&nbsp;
@@ -280,7 +300,7 @@
 </div><!-- /container -->
 
 
-<!-- -----------------------
+<!-- =======================
 ---- Modals 
 ------------------------ -->
 
@@ -355,7 +375,7 @@
 </div>
 
 
-<!-- -----------------------
+<!-- =======================
 ---- Scripts 
 ------------------------ -->
 

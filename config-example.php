@@ -5,6 +5,7 @@ require_once('./vendor/stripe/stripe-php/lib/Stripe.php');
 $image = "iww_logo_128x128.png";
 $title = "Your GMB";
 $robots = "noindex";
+$submit_btn = "Pay Dues";
 
 // Stripe Settings
 $stripe = array(
