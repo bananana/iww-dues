@@ -5,7 +5,10 @@ require_once(dirname(__FILE__) . '/config.php');
 $token  = $_POST['stripeToken'];
 $email = (isset($_POST['inputEmail']) ? $_POST['inputEmail'] : "N/A");
 $phone = (isset($_POST['inputPhone']) ? $_POST['inputPhone'] : "N/A");
-$xnumber = (isset($_POST['inputXNum']) ? $_POST['inputXNum'] : "N/A");
+$XNumber = (isset($_POST['inputXNum']) ? $_POST['inputXNum'] : "N/A");
+$IUNumber = (isset($_POST['inputIUNum']) ? $_POST['inputIUNum'] : "N/A");
+$delegateNumber = (isset($_POST['inputDelNum']) ? $_POST['inputDelNum'] : "N/A");
+$dateLastPaid = (isset($_POST['inputDateLastPaid']) ? $_POST['inputDateLastPaid'] : "N/A");
 $recurring = $_POST['radioRecurrance'];
 $amount = $_POST['selectAmount'];
 
@@ -53,7 +56,10 @@ $charge = Stripe_Charge::create(array(
 	'currency' => $stripe['currency'],
 	'metadata' => array(
 		'Phone'		=> $phone,
-		'X Number'	=> $xnumber
+		'X Number'	=> $XNumber,
+		'IU Number'	=> $IUNumber,
+		'Delegate Number' => $delegateNumber,
+		'Date Last Paid' => $dateLastPaid
 	)
 ));
 ?>

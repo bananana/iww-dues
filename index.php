@@ -48,14 +48,8 @@
 		<div class="col-xs-12 col-md-8 col-md-offset-2 panel panel-default">
 			<div class="panel-body">
 				
-				<div class="hidden-xs hidden-sm">
-					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" class="img-circle center-block">
-					<h1 class="text-center"><?php echo $title; ?></h1>
-				</div>
-				<div class="visible-xs-block visible-sm-block col-md-8">
-					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" class="img-circle">
-					<h3 class="text-center pull-right" style="width:150px;"><?php echo $title; ?></h3>
-				</div>
+				<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" class="img-circle center-block">
+				<h1 class="text-center"><?php echo $title; ?></h1>
 				<hr>
 								
 				<!-- Dues Form -->
@@ -124,7 +118,9 @@
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
 					</div>
-				  </div>			  
+				  </div>
+				  <hr>
+				  			  
 				  <div class="form-group form-group-lg has-feedback">
 					<label class="control-label col-md-2" for="inputXNum">X Number</label>
 					<div class="col-md-8 col-sm-11">
@@ -150,7 +146,80 @@
 						</h4>
 					</div>
 				  </div>
+				  <div class="form-group form-group-lg has-feedback">
+					<label class="control-label col-md-2" for="inputIUNum">IU</label>
+					<div class="col-md-8 col-sm-11">
+
+						<input 
+							type="text" 
+							class="form-control" 
+							id="inputIUNum" 
+							name="inputIUNum"
+							data-validation="custom"
+							data-validation-optional="true"
+							data-validation-regexp="^[0-9]{3}$"
+							tabindex="5"
+							placeholder="460">
+						
+						<span class="glyphicon form-control-feedback"></span>
+					</div>
+					<div class="col-md-2 col-sm-1 hidden-xs">
+						<h4 class="help-btn">
+							<a href="#" data-toggle="modal" data-target="#IUNumModal">
+								<span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+						</h4>
+					</div>
+				  </div>
+				  <div class="form-group form-group-lg has-feedback">
+					<label class="control-label col-md-2" for="inputDelNum">Delegate</label>
+					<div class="col-md-8 col-sm-11">
+
+						<input 
+							type="text" 
+							class="form-control" 
+							id="inputDelNum" 
+							name="inputDelNum"
+							data-validation="number"
+							tabindex="5"
+							placeholder="1234">
+						
+						<span class="glyphicon form-control-feedback"></span>
+					</div>
+					<div class="col-md-2 col-sm-1 hidden-xs">
+						<h4 class="help-btn">
+							<a href="#" data-toggle="modal" data-target="#DelNumModal">
+								<span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+						</h4>
+					</div>
+				  </div>
+				  <div class="form-group form-group-lg has-feedback">
+					<label class="control-label col-md-2" for="inputDateLastPaid">Last Paid</label>
+					<div class="col-md-8 col-sm-11">
+
+						<input 
+							type="text" 
+							class="form-control" 
+							id="inputDateLastPaid" 
+							name="inputDateLastPaid"
+							data-validation="date"
+							data-validation-format="mm/dd/yyyy"
+							tabindex="5"
+							placeholder="mm/dd/yyyy">
+						
+						<span class="glyphicon form-control-feedback"></span>
+					</div>
+					<div class="col-md-2 col-sm-1 hidden-xs">
+						<h4 class="help-btn">
+							<a href="#" data-toggle="modal" data-target="#DateLastPaidModal">
+								<span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+						</h4>
+					</div>
+				  </div>
 				  <hr>
+				  
 				  <div class="form-group form-group-lg has-feedback">
 					<label class="control-label col-md-2" for="inputCardNum">Card Number</label>
 					<div class="col-md-8 col-sm-11">
@@ -170,7 +239,6 @@
 						&nbsp;
 					</div>
 				  </div>
-					
 				  <div class="form-group form-group-lg has-feedback">
 					<label class="control-label col-md-2" for="inputExpiration">Expiration</label>
 					<div class="col-md-3 col-sm-11">
@@ -189,7 +257,6 @@
 					<div class="col-sm-1 hidden-lg hidden-md hidden-xs">
 						&nbsp;
 					</div>
-				
 					<label class="control-label col-md-2 hidden-sm" for="inputCVC"><br class="visible-xs-block">CVC</label>
 					<div class="visible-sm-block col-sm-10"><br><strong>CVC</strong></div> <!-- Hack to fix alignent on small screens -->
 					<div class="col-md-3 col-sm-11">
@@ -268,6 +335,7 @@
 					</div>
 				  </div>
 				  <hr>
+				  
 				  <div class="form-group form-group-lg">
 					<div class="col-md-offset-2 col-md-8">					
 						<button type="submit" class="btn btn-lg btn-primary btn-block" id="submit-btn" tabindex="11">
@@ -323,6 +391,60 @@
 				<td>You can find your X Number on the 1<sup>st</sup> page of your red card. It starts with an <strong>X</strong> followed by 6 digits.</td>
 			</tr>
 		</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- IU Number -->
+<div class="modal fade" id="IUNumModal" tabindex="-1" role="dialog" aria-labelledby="IUNumModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="IUNumModalLabel">Industrial Union Number</h4>
+      </div>
+      <div class="modal-body">
+		[picture of red card]
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delegate Number -->
+<div class="modal fade" id="DelNumModal" tabindex="-1" role="dialog" aria-labelledby="DelNumModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="DelNumModalLabel">Delegate Number</h4>
+      </div>
+      <div class="modal-body">
+		[picture of red card]
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Date Last Paid -->
+<div class="modal fade" id="DateLastPaidModal" tabindex="-1" role="dialog" aria-labelledby="DateLastPaidModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="DateLastPaidModalLabel">Date you last paid dues</h4>
+      </div>
+      <div class="modal-body">
+		[picture of red card]
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -436,8 +558,7 @@ $.validate({
 	onSuccess : function() {
 		//console.log('Form is valid');
 		
-		// Split the expiration date into month (index 0) and
-		// year (index 1)
+		// Split the expiration date into month (index 0) and year (index 1)
 		var $expiration = $('#inputExpiration').val().split("/");
 		
 		// Create Stripe single use token
