@@ -580,6 +580,32 @@ $.validate({
 	}
 });
 
+// TODO:
+// Validation event listeners
+/*
+$('input').bind('validation', function(evt, isValid) {
+	if(isValid) {
+		if( $(this).parents(':eq(1)').hasClass('has-error') ) {
+			$(this).parents(':eq(1)').removeClass('has-error');
+			$(this).parents(':eq(1)').addClass('has-success');
+		}
+		else { 
+			$(this).parents(':eq(1)').addClass('has-success');
+			$(this).parents(':eq(0) > span').addClass('glyphicon-ok');
+		}
+	}
+	else {
+		if( $(this).parents(':eq(1)').hasClass('has-success') ) {
+			$(this).parents(':eq(1)').removeClass('has-success');
+			$(this).parents(':eq(1)').addClass('has-error');
+		}
+		else { 
+			$(this).parents(':eq(1)').addClass('has-error');
+		}
+	}
+});
+*/
+
 // Handle response from Stripe
 function stripeResponseHandler(status, response) {	
 	var $form = $('#dues-form');
