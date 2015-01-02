@@ -67,7 +67,7 @@
 						<input 
 							type="text" 
 							class="form-control" 
-							id="inputName" 
+							id="inputName"
 							data-validation="required"
 							tabindex="1"
 							placeholder="Ben Fletcher">
@@ -98,6 +98,7 @@
 						&nbsp;
 					</div>
 				  </div>
+				  <!--
 				  <div class="form-group form-group-lg has-feedback">
 					<label for="inputPhone" class="col-md-2 control-label">Phone</label>
 					<div class="col-md-8 col-sm-11">
@@ -119,6 +120,7 @@
 						&nbsp;
 					</div>
 				  </div>
+				  -->
 				  <hr>
 				  			  
 				  <div class="form-group form-group-lg has-feedback">
@@ -549,7 +551,7 @@ $.formUtils.addValidator({
 	errorMessageKey : 'badCreditCardEpiry'
 });
 
-// Validate the form. If successful proceed to token creation
+// Validate the form, if successful, proceed to token creation
 $.validate({
 	form : '#dues-form',
 	onError : function() {
@@ -561,8 +563,10 @@ $.validate({
 		// Split the expiration date into month (index 0) and year (index 1)
 		var $expiration = $('#inputExpiration').val().split("/");
 		
-		// Create Stripe single use token
+		// Disable submit button
 		$('#submit-btn').prop('disabled', true);
+		
+		// Create Stripe single use token
 		Stripe.card.createToken({
 			name: 		$('#inputName').val(),
 			number: 	$('#inputCardNum').val(),

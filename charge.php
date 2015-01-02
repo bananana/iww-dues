@@ -4,7 +4,7 @@ require_once(dirname(__FILE__) . '/config.php');
 // Get necessary input values from the form
 $token  = $_POST['stripeToken'];
 $email = (isset($_POST['inputEmail']) ? $_POST['inputEmail'] : "N/A");
-$phone = (isset($_POST['inputPhone']) ? $_POST['inputPhone'] : "N/A");
+//$phone = (isset($_POST['inputPhone']) ? $_POST['inputPhone'] : "N/A");
 $XNumber = (isset($_POST['inputXNum']) ? $_POST['inputXNum'] : "N/A");
 $IUNumber = (isset($_POST['inputIUNum']) ? $_POST['inputIUNum'] : "N/A");
 $delegateNumber = (isset($_POST['inputDelNum']) ? $_POST['inputDelNum'] : "N/A");
@@ -55,7 +55,7 @@ $charge = Stripe_Charge::create(array(
 	'amount'   => $amount,
 	'currency' => $stripe['currency'],
 	'metadata' => array(
-		'Phone'		=> $phone,
+	//	'Phone'		=> $phone,
 		'X Number'	=> $XNumber,
 		'IU Number'	=> $IUNumber,
 		'Delegate Number' => $delegateNumber,
