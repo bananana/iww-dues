@@ -13,6 +13,7 @@ Thumbs.db
 vendor/
 components/
 
-# Personal config file #
-########################
+# Personal config files #
+#########################
 config.php
+iww-dues.geany
