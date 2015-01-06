@@ -307,7 +307,7 @@
 					<label for="recurrance" class="col-sm-2 control-label">&nbsp;</label>
 					<div class="cols-md-offset-2 col-md-8">
 						<div class="btn-group btn-group-lg radio-segmented" style="width:100%">
-							<label class="btn btn-default" for="recurring" style="width:50%">
+							<label class="btn btn-default active" for="recurring" style="width:50%">
 							
 								<input
 									type="radio"
@@ -316,6 +316,7 @@
 									name="radioRecurrance"
 									value="1"
 									tabindex="9"
+									autocomplete="off"
 									checked> Recurring
 								  
 							</label>
@@ -327,6 +328,7 @@
 								  	id="one-time"
 								  	name="radioRecurrance"
 								  	tabindex="10"
+									autocomplete="off"
 								  	value="0"> One Time
 								  
 							</label>
@@ -517,14 +519,24 @@
 
 <!-- Validate form and process payment -->
 <script>	
-// Listen to close buttons
+// Set Stripe publishable key
+Stripe.setPublishableKey('<?php echo $stripe['publishable_key']; ?>');
+
+// Listen to modal close buttons
 $(".close-btn").click(function( event ) {
 	event.preventDefault();
 	$(this).parent().fadeOut();
 });
 
-// Set Stripe publishable key
-Stripe.setPublishableKey('<?php echo $stripe['publishable_key']; ?>');
+// Add "active" class to selected radio options
+$('input[name="radioRecurrance"]').click( function () {
+	// Active status is reflected in the label tag
+	var $activeLabel = $(this).parent();
+	var $inactiveLabel = $('input[name="radioRecurrance"]').not(':checked').parent();
+	
+	$activeLabel.addClass('active');
+	$inactiveLabel.removeClass('active');
+});
 
 // Custom validators
 $.formUtils.addValidator({
