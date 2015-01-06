@@ -22,10 +22,6 @@
 		.form-control-feedback {
 			margin-top:6px;
 		}
-		input[type="radio"], 
-		input[type="checkbox"] {
-    		margin: 6px 0 0 0;
-    	}
 	</style>
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -51,7 +47,7 @@
 				<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" class="img-circle center-block">
 				<h1 class="text-center"><?php echo $title; ?></h1>
 				<hr>
-								
+					
 				<!-- Dues Form -->
 				<form 
 					class="form-horizontal" 
@@ -72,7 +68,7 @@
 							tabindex="1"
 							placeholder="Ben Fletcher">
 						
-						<span class="glyphicon glyphicon-asterisk form-control-feedback"></span>				
+						<span class="glyphicon form-control-feedback"></span>				
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
@@ -87,7 +83,6 @@
 							class="form-control" 
 							id="inputEmail" 
 							name="inputEmail"
-							data-validation-optional="true"
 							data-validation="email" 
 							tabindex="2"
 							placeholder="email@service.com">
@@ -235,7 +230,7 @@
 							autocomplete="off"
 							placeholder="1234-1234-1234-1234">
 								
-						<span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
+						<span class="glyphicon form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
@@ -254,7 +249,7 @@
 							autocomplete="off"
 							placeholder="MM/YYYY">
 						
-						<span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
+						<span class="glyphicon form-control-feedback"></span>
 					</div>
 					<div class="col-sm-1 hidden-lg hidden-md hidden-xs">
 						&nbsp;
@@ -273,7 +268,7 @@
 							autocomplete="off"
 							placeholder="123">
 					  
-						<span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
+						<span class="glyphicon form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						<h4 class="help-btn">
@@ -306,7 +301,7 @@
 				  <div class="form-group form-group-lg">
 					<label for="recurrance" class="col-sm-2 control-label">&nbsp;</label>
 					<div class="cols-md-offset-2 col-md-8">
-						<div class="btn-group btn-group-lg radio-segmented" style="width:100%">
+						<div class="btn-group btn-group-lg radio-segmented" data-toggle="buttons" style="width:100%">
 							<label class="btn btn-default active" for="recurring" style="width:50%">
 							
 								<input
@@ -528,16 +523,6 @@ $(".close-btn").click(function( event ) {
 	$(this).parent().fadeOut();
 });
 
-// Add "active" class to selected radio options
-$('input[name="radioRecurrance"]').click( function () {
-	// Active status is reflected in the label tag
-	var $activeLabel = $(this).parent();
-	var $inactiveLabel = $('input[name="radioRecurrance"]').not(':checked').parent();
-	
-	$activeLabel.addClass('active');
-	$inactiveLabel.removeClass('active');
-});
-
 // Custom validators
 $.formUtils.addValidator({
 	name : 'credit_card_number',
@@ -592,31 +577,42 @@ $.validate({
 	}
 });
 
-// TODO:
-// Validation event listeners
-/*
+// Dynamic feedback on validity of input
 $('input').bind('validation', function(evt, isValid) {
+	var $feedbackElem = $(this).parent().children('.form-control-feedback');
+	
+	// If required and valid
 	if(isValid) {
-		if( $(this).parents(':eq(1)').hasClass('has-error') ) {
-			$(this).parents(':eq(1)').removeClass('has-error');
-			$(this).parents(':eq(1)').addClass('has-success');
+		if($feedbackElem.hasClass('glyphicon-warning-sign')) {
+			$feedbackElem.removeClass('glyphicon-warning-sign');
 		}
-		else { 
-			$(this).parents(':eq(1)').addClass('has-success');
-			$(this).parents(':eq(0) > span').addClass('glyphicon-ok');
-		}
+		$feedbackElem.addClass('glyphicon-ok');
+		
+		// Shorter but slower if class doesn't exist?
+		//$feedbackElem.removeClass('glyphicon-warning-sign').addClass('glyphicon-ok');
 	}
-	else {
-		if( $(this).parents(':eq(1)').hasClass('has-success') ) {
-			$(this).parents(':eq(1)').removeClass('has-success');
-			$(this).parents(':eq(1)').addClass('has-error');
+	// If optional and empty (not valid)
+	else if(!isValid && $(this).attr('data-validation-optional') == "true" && $(this).val() == "") {
+		if($feedbackElem.hasClass('glyphicon-ok')) {
+			$feedbackElem.removeClass('glyphicon-ok');
 		}
-		else { 
-			$(this).parents(':eq(1)').addClass('has-error');
+		else if($feedbackElem.hasClass('glyphicon-warning-sign')) {
+			$feedbackElem.removeClass('glyphicon-warning-sign');
 		}
+		// Shorter but slower if class doesn't exist?
+		//$feedbackElem.removeClass('glyphicon-warning-sign').removeClass('glyphicon-ok');
+	}
+	// If required and not valid
+	else{
+		if($feedbackElem.hasClass('glyphicon-ok')) {
+			$feedbackElem.removeClass('glyphicon-ok');
+		}
+		$feedbackElem.addClass('glyphicon-warning-sign');
+		
+		// Shorter but slower if class doesn't exist?
+		//$feedbackElem.removeClass('glyphicon-ok').addClass('glyphicon-warning-sign');
 	}
 });
-*/
 
 // Handle response from Stripe
 function stripeResponseHandler(status, response) {	
