@@ -14,4 +14,4 @@ $stripe = array(
   "currency"		=> "usd"
 );
 Stripe::setApiKey($stripe['secret_key']);
-?>
+

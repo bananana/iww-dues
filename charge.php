@@ -1,16 +1,19 @@
 <?php
 require_once(dirname(__FILE__) . '/config.php');
 
+// Function to automate the isset() check for input values
+function checkInput($name) { return (isset($name)) ? : "N/A"); }
+
 // Get necessary input values from the form
-$token  = $_POST['stripeToken'];
-$email = (isset($_POST['inputEmail']) ? $_POST['inputEmail'] : "N/A");
-//$phone = (isset($_POST['inputPhone']) ? $_POST['inputPhone'] : "N/A");
-$XNumber = (isset($_POST['inputXNum']) ? $_POST['inputXNum'] : "N/A");
-$IUNumber = (isset($_POST['inputIUNum']) ? $_POST['inputIUNum'] : "N/A");
-$delegateNumber = (isset($_POST['inputDelNum']) ? $_POST['inputDelNum'] : "N/A");
-$dateLastPaid = (isset($_POST['inputDateLastPaid']) ? $_POST['inputDateLastPaid'] : "N/A");
-$recurring = $_POST['radioRecurrance'];
-$amount = $_POST['selectAmount'];
+$token  = checkInput($_POST['stripeToken']); // (isset($_POST['stripeToken']) ? $_POST['stripeToken'] : "N/A");
+$email = checkInput($_POST['inputEmail']); // (isset($_POST['inputEmail']) ? $_POST['inputEmail'] : "N/A");
+//$phone = checkInput($_POST['[inputEmail']); // (isset($_POST['inputPhone']) ? $_POST['inputPhone'] : "N/A");
+$XNumber = checkInput($_POST['inputXNum']); // (isset($_POST['inputXNum']) ? $_POST['inputXNum'] : "N/A");
+$IUNumber = checkInput($_POST['inputIUNum']); //(isset($_POST['inputIUNum']) ? $_POST['inputIUNum'] : "N/A");
+$delegateNumber = checkInput($_POST['inputDelNum']); // (isset($_POST['inputDelNum']) ? $_POST['inputDelNum'] : "N/A");
+$dateLastPaid = checkInput($_POST['inputDateLastPaid']; // (isset($_POST['inputDateLastPaid']) ? $_POST['inputDateLastPaid'] : "N/A");
+$recurring = checkInput($_POST['radioRecurrance']; // $_POST['radioRecurrance'];
+$amount = checkInput($_POST['selectAmound']; //$_POST['selectAmount'];
 
 // Sign up user for recurring dues plan
 // if that option was selected, otherwise
