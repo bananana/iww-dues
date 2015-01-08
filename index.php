@@ -68,7 +68,7 @@
 							tabindex="1"
 							placeholder="Ben Fletcher">
 						
-						<span class="glyphicon form-control-feedback"></span>				
+						<span class="form-control-feedback"></span>				
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
@@ -87,7 +87,7 @@
 							tabindex="2"
 							placeholder="email@service.com">
 							
-						<span class="glyphicon form-control-feedback"></span>						
+						<span class="form-control-feedback"></span>						
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
@@ -109,7 +109,7 @@
 							data-validation-regexp="^[0-9]{3}[-. ]?[0-9]{3}[-. ]?[0-9]{4}$"
 							placeholder="123-456-7890">
 						
-						<span class="glyphicon form-control-feedback"></span>
+						<span class="form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
@@ -128,12 +128,11 @@
 							id="inputXNum" 
 							name="inputXNum"
 							data-validation="custom"
-							data-validation-optional="true"
 							data-validation-regexp="^(x|X)?[0-9]{6}$"
 							tabindex="4"
 							placeholder="X123456">
 						
-						<span class="glyphicon form-control-feedback"></span>
+						<span class="form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						<h4 class="help-btn">
@@ -158,7 +157,7 @@
 							tabindex="5"
 							placeholder="460">
 						
-						<span class="glyphicon form-control-feedback"></span>
+						<span class="form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						<h4 class="help-btn">
@@ -181,7 +180,7 @@
 							tabindex="5"
 							placeholder="1234">
 						
-						<span class="glyphicon form-control-feedback"></span>
+						<span class="form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						<h4 class="help-btn">
@@ -205,7 +204,7 @@
 							tabindex="5"
 							placeholder="mm/dd/yyyy">
 						
-						<span class="glyphicon form-control-feedback"></span>
+						<span class="form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						<h4 class="help-btn">
@@ -230,7 +229,7 @@
 							autocomplete="off"
 							placeholder="1234-1234-1234-1234">
 								
-						<span class="glyphicon form-control-feedback"></span>
+						<span class="form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
@@ -249,7 +248,7 @@
 							autocomplete="off"
 							placeholder="MM/YYYY">
 						
-						<span class="glyphicon form-control-feedback"></span>
+						<span class="form-control-feedback"></span>
 					</div>
 					<div class="col-sm-1 hidden-lg hidden-md hidden-xs">
 						&nbsp;
@@ -268,7 +267,7 @@
 							autocomplete="off"
 							placeholder="123">
 					  
-						<span class="glyphicon form-control-feedback"></span>
+						<span class="form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						<h4 class="help-btn">
@@ -413,8 +412,8 @@ $.formUtils.addValidator({
 $.formUtils.addValidator({
 	name : 'credit_card_expiry',
 	validatorFunction : function(value, $el, config, language, $form) {			
-		var $regexp = new RegExp(/^[0-9]{2}\/[0-9]{4}$/);
-		if ($regexp.test(value)) {
+		var regexp = new RegExp(/^[0-9]{2}\/[0-9]{4}$/);
+		if (regexp.test(value)) {
 			var monthAndYear = value.split("/");
 			return Stripe.card.validateExpiry(monthAndYear[0], monthAndYear[1]);			
 		}
@@ -455,40 +454,26 @@ $.validate({
 	}
 });
 
-// Dynamic feedback on validity of input
+// Dynamic form feedback
+var feedbackClasses = {
+	initial: 'form-control-feedback',
+	success: 'glyphicon glyphicon-ok form-control-feedback',
+	failure: 'glyphicon glyphicon-warning-sign form-control-feedback'
+}
 $('input').bind('validation', function(evt, isValid) {
 	var $feedbackElem = $(this).parent().children('.form-control-feedback');
 	
 	// If required and valid
 	if(isValid) {
-		if($feedbackElem.hasClass('glyphicon-warning-sign')) {
-			$feedbackElem.removeClass('glyphicon-warning-sign');
-		}
-		$feedbackElem.addClass('glyphicon-ok');
-		
-		// Shorter but slower if class doesn't exist?
-		//$feedbackElem.removeClass('glyphicon-warning-sign').addClass('glyphicon-ok');
+		$feedbackElem.removeClass().addClass(feedbackClasses['success']);
 	}
 	// If optional and empty (not valid)
 	else if(!isValid && $(this).attr('data-validation-optional') == "true" && $(this).val() == "") {
-		if($feedbackElem.hasClass('glyphicon-ok')) {
-			$feedbackElem.removeClass('glyphicon-ok');
-		}
-		else if($feedbackElem.hasClass('glyphicon-warning-sign')) {
-			$feedbackElem.removeClass('glyphicon-warning-sign');
-		}
-		// Shorter but slower if class doesn't exist?
-		//$feedbackElem.removeClass('glyphicon-warning-sign').removeClass('glyphicon-ok');
+		$feedbackElem.removeClass().addClass(feedbackClasses['initial']);
 	}
 	// If required and not valid
 	else{
-		if($feedbackElem.hasClass('glyphicon-ok')) {
-			$feedbackElem.removeClass('glyphicon-ok');
-		}
-		$feedbackElem.addClass('glyphicon-warning-sign');
-		
-		// Shorter but slower if class doesn't exist?
-		//$feedbackElem.removeClass('glyphicon-ok').addClass('glyphicon-warning-sign');
+		$feedbackElem.removeClass().addClass(feedbackClasses['failure']);
 	}
 });
 
