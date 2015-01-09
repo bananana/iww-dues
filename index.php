@@ -17,7 +17,7 @@
 			background-color:#eee;
 		}
 		.help-btn {
-			padding-top:3px;
+			margin: 10px 0 0 0;
 		}
 		.form-control-feedback {
 			margin-top:6px;
@@ -44,13 +44,34 @@
 <p class="hidden-xs">&nbsp;</p>
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12 col-md-8 col-md-offset-2 panel panel-default">
+		<div class="panel panel-default col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
 			<div class="panel-body">
 				
-				<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" class="img-circle center-block">
-				<h1 class="text-center"><?php echo $title; ?></h1>
+				<!-- Standard header -->
+				<header class="row clearfix hidden-xs">
+					<div class="col-sm-4 col-md-3">
+						<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" class="img-circle img-responsive pull-left">
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<h1>
+							<?php echo $title; ?>
+							<br>
+							<small><?php echo $secondaryTitle; ?></small>
+						</h1>
+					</div>
+				</header>
+				
+				<!-- Extra small header -->
+				<header class="row clearfix visible-xs-block">
+					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" class="img-circle img-responsive pull-left" style="width:64px; margin-right:15px">
+					<h2 class="visible-xs-inline">
+						<?php echo $title; ?>
+						<br>
+						<small><?php echo $secondaryTitle; ?></small>
+					</h2>
+				</header>
 				<hr>
-					
+				
 				<!-- Dues Form -->
 				<form 
 					class="form-horizontal" 
@@ -60,8 +81,8 @@
 					role="form">
 				  
 				  <div class="form-group form-group-lg has-feedback">
-					<label for="inputName" class="col-md-2 control-label">Full Name</label>
-					<div class="col-md-8 col-sm-11">
+					<label for="inputName" class="control-label col-sm-3">Full Name</label>
+					<div class="col-sm-7">
 
 						<input 
 							type="text" 
@@ -73,13 +94,13 @@
 						
 						<span class="form-control-feedback"></span>
 					</div>
-					<div class="col-md-2 col-sm-1 hidden-xs">
+					<div class="hidden-xs col-sm-2">
 						&nbsp;
 					</div>
 				  </div>
 				  <div class="form-group form-group-lg has-feedback">
-					<label for="inputEmail" class="col-md-2 control-label">Email</label>
-					<div class="col-md-8 col-sm-11">
+					<label for="inputEmail" class="control-label col-sm-3">Email</label>
+					<div class="col-sm-7">
 					
 						<input 
 							type="text" 
@@ -92,14 +113,14 @@
 							
 						<span class="form-control-feedback"></span>						
 					</div>
-					<div class="col-md-2 col-sm-1 hidden-xs">
+					<div class="hidden-xs col-sm-2">
 						&nbsp;
 					</div>
 				  </div>
 				  <!--
 				  <div class="form-group form-group-lg has-feedback">
-					<label for="inputPhone" class="col-md-2 control-label">Phone</label>
-					<div class="col-md-8 col-sm-11">
+					<label for="inputPhone" class="control-label col-sm-3">Phone</label>
+					<div class="col-sm-7">
 					
 						<input 
 							type="text" 
@@ -114,7 +135,7 @@
 						
 						<span class="form-control-feedback"></span>
 					</div>
-					<div class="col-md-2 col-sm-1 hidden-xs">
+					<div class="hidden-xs col-sm-2">
 						&nbsp;
 					</div>
 				  </div>
@@ -122,8 +143,8 @@
 				  <hr>
 				  			  
 				  <div class="form-group form-group-lg has-feedback">
-					<label class="control-label col-md-2" for="inputXNum">X Number</label>
-					<div class="col-md-8 col-sm-11">
+					<label class="control-label col-sm-3" for="inputXNum">X #</label>
+					<div class="col-sm-7">
 
 						<input 
 							type="text" 
@@ -136,18 +157,19 @@
 							placeholder="X123456">
 						
 						<span class="form-control-feedback"></span>
+					
 					</div>
-					<div class="col-md-2 col-sm-1 hidden-xs">
-						<h4 class="help-btn">
+					<div class="hidden-xs col-sm-2">
+						<h3 class="help-btn">
 							<a href="#" data-toggle="modal" data-target="#XNumModal">
 								<span class="glyphicon glyphicon-question-sign"></span>
 							</a>
-						</h4>
+						</h3>
 					</div>
 				  </div>
 				  <div class="form-group form-group-lg has-feedback">
-					<label class="control-label col-md-2" for="inputIUNum">IU</label>
-					<div class="col-md-8 col-sm-11">
+					<label class="control-label col-sm-3" for="inputIUNum">IU #</label>
+					<div class="col-sm-7">
 
 						<input 
 							type="text" 
@@ -162,17 +184,17 @@
 						
 						<span class="form-control-feedback"></span>
 					</div>
-					<div class="col-md-2 col-sm-1 hidden-xs">
-						<h4 class="help-btn">
+					<div class="hidden-xs col-sm-2">
+						<h3 class="help-btn">
 							<a href="#" data-toggle="modal" data-target="#IUNumModal">
 								<span class="glyphicon glyphicon-question-sign"></span>
 							</a>
-						</h4>
+						</h3>
 					</div>
 				  </div>
 				  <div class="form-group form-group-lg has-feedback">
-					<label class="control-label col-md-2" for="inputDelNum">Delegate</label>
-					<div class="col-md-8 col-sm-11">
+					<label class="control-label col-sm-3" for="inputDelNum">Delegate #</label>
+					<div class="col-sm-7">
 
 						<input 
 							type="text" 
@@ -185,17 +207,17 @@
 						
 						<span class="form-control-feedback"></span>
 					</div>
-					<div class="col-md-2 col-sm-1 hidden-xs">
-						<h4 class="help-btn">
+					<div class="hidden-xs col-sm-2">
+						<h3 class="help-btn">
 							<a href="#" data-toggle="modal" data-target="#DelNumModal">
 								<span class="glyphicon glyphicon-question-sign"></span>
 							</a>
-						</h4>
+						</h3>
 					</div>
 				  </div>
 				  <div class="form-group form-group-lg has-feedback">
-					<label class="control-label col-md-2" for="inputDateLastPaid">Last Paid</label>
-					<div class="col-md-8 col-sm-11">
+					<label class="control-label col-sm-3" for="inputDateLastPaid">Last Paid</label>
+					<div class="col-sm-7">
 
 						<input 
 							type="text" 
@@ -209,19 +231,19 @@
 						
 						<span class="form-control-feedback"></span>
 					</div>
-					<div class="col-md-2 col-sm-1 hidden-xs">
-						<h4 class="help-btn">
+					<div class="hidden-xs col-sm-2">
+						<h3 class="help-btn">
 							<a href="#" data-toggle="modal" data-target="#DateLastPaidModal">
 								<span class="glyphicon glyphicon-question-sign"></span>
 							</a>
-						</h4>
+						</h3>
 					</div>
 				  </div>
 				  <hr>
 				  
 				  <div class="form-group form-group-lg has-feedback">
-					<label class="control-label col-md-2" for="inputCardNum">Card Number</label>
-					<div class="col-md-8 col-sm-11">
+					<label class="control-label col-sm-3" for="inputCardNum">Card #</label>
+					<div class="col-sm-7">
 							
 						<input 
 							type="text" 
@@ -234,13 +256,13 @@
 								
 						<span class="form-control-feedback"></span>
 					</div>
-					<div class="col-md-2 col-sm-1 hidden-xs">
+					<div class="hidden-xs col-sm-2">
 						&nbsp;
 					</div>
 				  </div>
 				  <div class="form-group form-group-lg has-feedback">
-					<label class="control-label col-md-2" for="inputExpiration">Expiration</label>
-					<div class="col-md-3 col-sm-11">
+					<label class="control-label col-sm-3" for="inputExpiration">Expiration</label>
+					<div class="col-sm-7">
 					
 						<input 
 							type="text" 
@@ -253,12 +275,13 @@
 						
 						<span class="form-control-feedback"></span>
 					</div>
-					<div class="col-sm-1 hidden-lg hidden-md hidden-xs">
+					<div class="hidden-xs col-sm-2">
 						&nbsp;
 					</div>
-					<label class="control-label col-md-2 hidden-sm" for="inputCVC"><br class="visible-xs-block">CVC</label>
-					<div class="visible-sm-block col-sm-10"><br><strong>CVC</strong></div> <!-- Hack to fix alignent on small screens -->
-					<div class="col-md-3 col-sm-11">
+				  </div>
+				  <div class="form-group form-group-lg has-feedback">
+					<label class="control-label col-sm-3" for="inputCVC">CVC</label>
+					<div class="col-sm-7">
 							
 						<input 
 							type="text" 
@@ -272,17 +295,17 @@
 					  
 						<span class="form-control-feedback"></span>
 					</div>
-					<div class="col-md-2 col-sm-1 hidden-xs">
-						<h4 class="help-btn">
+					<div class="hidden-xs col-sm-2">
+						<h3 class="help-btn">
 							<a href="#" data-toggle="modal" data-target="#CVCModal">
 								<span class="glyphicon glyphicon-question-sign"></span>
 							</a>
-						</h4>
+						</h3>
 					</div>
 				  </div>				  
 				  <div class="form-group form-group-lg">
-					<label for="selectAmount" class="col-md-2 control-label">Amount</label>
-					<div class="col-md-8 col-sm-11">
+					<label for="selectAmount" class="control-label col-sm-3">Amount</label>
+					<div class="col-sm-7">
 						
 						<select 
 							class="form-control" 
@@ -296,17 +319,17 @@
 						</select>
 					
 					</div>
-					<div class="col-md-2 col-sm-1 hidden-xs">
-						<h4 class="help-btn">
+					<div class="hidden-xs col-sm-2">
+						<h3 class="help-btn">
 							<a href="#" data-toggle="modal" data-target="#DuesAmountModal">
 								<span class="glyphicon glyphicon-question-sign"></span>
 							</a>
-						</h4>
+						</h3>
 					</div>
 				  </div>
 				  <div class="form-group form-group-lg">
-					<label for="recurrance" class="col-sm-2 control-label">&nbsp;</label>
-					<div class="cols-md-offset-2 col-md-8">
+					<label for="recurrance" class="control-label col-sm-3">&nbsp;</label>
+					<div class="col-sm-7">
 						<div class="btn-group btn-group-lg radio-segmented" data-toggle="buttons" style="width:100%">
 							<label class="btn btn-default active" for="recurring" style="width:50%">
 							
@@ -335,25 +358,22 @@
 							</label>
 						</div>
 					</div>
-					<div class="col-md-2 hidden-xs">
+					<div class="hidden-xs col-sm-2">
 						&nbsp;
 					</div>
 				  </div>
 				  <hr>
 				  
 				  <div class="form-group form-group-lg">
-					<div class="col-md-offset-2 col-md-8">
+					<div class="col-sm-offset-3 col-sm-7">
 					
 						<button 
 							type="submit" 
 							class="btn btn-lg btn-primary btn-block" 
 							id="submit-btn" 
-							tabindex="14"><?php echo $submit_btn; ?>
+							tabindex="14"><?php echo $submitBtn; ?>
 						</button>		
 							
-					</div>
-					<div class="col-md-2 hidden-xs">
-						&nbsp;
 					</div>
 				  </div>
 				  

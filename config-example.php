@@ -3,9 +3,10 @@ require_once('./vendor/stripe/stripe-php/lib/Stripe.php');
 
 // General Settings
 $image = "iww_logo_128x128.png";
-$title = "Your GMB";
+$title = "NYC GMB";
+$secondaryTitle = "Dues Payment";
 $robots = "noindex";
-$submit_btn = "Pay Dues";
+$submitBtn = "Pay Dues";
 
 // Stripe Settings
 $stripe = array(
