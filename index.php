@@ -65,10 +65,12 @@
 							class="form-control" 
 							id="inputName"
 							data-validation="required"
+							aria-describedby="inputNameStatus"
 							tabindex="1"
 							placeholder="Ben Fletcher">
 						
-						<span class="form-control-feedback"></span>				
+						<span class="form-control-feedback" aria-hidden="false"></span>
+						<span class="sr-only" id="inputNameStatus">(success)</span>			
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
@@ -84,10 +86,12 @@
 							id="inputEmail" 
 							name="inputEmail"
 							data-validation="email" 
+							aria-describedby="inputEmailStatus"
 							tabindex="2"
 							placeholder="email@service.com">
 							
-						<span class="form-control-feedback"></span>						
+						<span class="form-control-feedback" aria-hidden="true"></span>
+						<span class="sr-only" id="inputEmailStatus"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
@@ -103,13 +107,15 @@
 							class="form-control" 
 							id="inputPhone" 
 							name="inputPhone"
-							tabindex="3"
 							data-validation="custom"
 							data-validation-optional="true"
 							data-validation-regexp="^[0-9]{3}[-. ]?[0-9]{3}[-. ]?[0-9]{4}$"
+							aria-describedby="inputPhoneStatus"
+							tabindex="3"
 							placeholder="123-456-7890">
 						
-						<span class="form-control-feedback"></span>
+						<span class="form-control-feedback" aria-hidden="true"></span>
+						<span class="sr-only" id="inputPhoneStatus"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
@@ -129,10 +135,12 @@
 							name="inputXNum"
 							data-validation="custom"
 							data-validation-regexp="^(x|X)?[0-9]{6}$"
+							aria-describedby="inputXNumStatus"
 							tabindex="4"
 							placeholder="X123456">
 						
-						<span class="form-control-feedback"></span>
+						<span class="form-control-feedback" aria-hidden="true"></span>
+						<span class="sr-only" id="inputXNumStatus"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						<h4 class="help-btn">
@@ -154,10 +162,12 @@
 							data-validation="custom"
 							data-validation-optional="true"
 							data-validation-regexp="^[0-9]{3}$"
+							aria-describedby="inputIUNumStatus"
 							tabindex="5"
 							placeholder="460">
 						
-						<span class="form-control-feedback"></span>
+						<span class="form-control-feedback" aria-hidden="true"></span>
+						<span class="sr-only" id="inputIUNumStatus"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						<h4 class="help-btn">
@@ -177,10 +187,12 @@
 							id="inputDelNum" 
 							name="inputDelNum"
 							data-validation="number"
-							tabindex="5"
+							aria-describedby="inputDelNumStatus"
+							tabindex="6"
 							placeholder="1234">
 						
-						<span class="form-control-feedback"></span>
+						<span class="form-control-feedback" aria-hidden="true"></span>
+						<span class="sr-only" id="inputDelNumStatus"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						<h4 class="help-btn">
@@ -201,10 +213,12 @@
 							name="inputDateLastPaid"
 							data-validation="date"
 							data-validation-format="mm/dd/yyyy"
-							tabindex="5"
+							aria-describedby="inputDateLastPaidStatus"
+							tabindex="7"
 							placeholder="mm/dd/yyyy">
 						
-						<span class="form-control-feedback"></span>
+						<span class="form-control-feedback" aria-hidden="true"></span>
+						<span class="sr-only" id="inputDateLastPaidStatus"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						<h4 class="help-btn">
@@ -224,12 +238,14 @@
 							type="text" 
 							class="form-control" 
 							id="inputCardNum" 
-							data-validation="credit_card_number"
-							tabindex="5"
 							autocomplete="off"
+							data-validation="credit_card_number"
+							aria-describedby="inputCardNumStatus"
+							tabindex="8"
 							placeholder="1234-1234-1234-1234">
 								
-						<span class="form-control-feedback"></span>
+						<span class="form-control-feedback" aria-hidden="true"></span>
+						<span class="sr-only" id="inputCardNumStatus"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
@@ -243,12 +259,14 @@
 							type="text" 
 							class="form-control" 
 							id="inputExpiration" 
-							data-validation="credit_card_expiry" 
-							tabindex="6"
 							autocomplete="off"
+							data-validation="credit_card_expiry" 
+							aria-describedby="inputExpirationStatus"
+							tabindex="9"
 							placeholder="MM/YYYY">
 						
-						<span class="form-control-feedback"></span>
+						<span class="form-control-feedback" aria-hidden="true"></span>
+						<span class="sr-only" id="inputExpirationStatus"></span>
 					</div>
 					<div class="col-sm-1 hidden-lg hidden-md hidden-xs">
 						&nbsp;
@@ -261,13 +279,15 @@
 							type="text" 
 							class="form-control" 
 							id="inputCVC" 
+							autocomplete="off"
 							data-validation="custom"
 							data-validation-regexp="^[0-9]{3}$"
-							tabindex="7"
-							autocomplete="off"
+							aria-describedby="inputCVCStatus"
+							tabindex="10"
 							placeholder="123">
 					  
-						<span class="form-control-feedback"></span>
+						<span class="form-control-feedback" aria-hidden="true"></span>
+						<span class="sr-only" id="inputCVCStatus"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						<h4 class="help-btn">
@@ -281,11 +301,15 @@
 					<label for="selectAmount" class="col-md-2 control-label">Amount</label>
 					<div class="col-md-8 col-sm-11">
 						
-						<select class="form-control" id="selectAmount" name="selectAmount" tabindex="8">
-							<option value="500">$5.00 (subminimum)</option>
-							<option value="900">$9.00 (minimum)</option>
-							<option value="1800" selected>$18.00 (regular)</option>
-							<option value="2700">$27.00 (maximum)</option>
+						<select 
+							class="form-control" 
+							id="selectAmount" 
+							name="selectAmount" 
+							tabindex="11">
+								<option value="500">$5.00 (subminimum)</option>
+								<option value="900">$9.00 (minimum)</option>
+								<option value="1800" selected>$18.00 (regular)</option>
+								<option value="2700">$27.00 (maximum)</option>
 						</select>
 					
 					</div>
@@ -308,9 +332,9 @@
 									class="pull-left"
 									id="recurring"
 									name="radioRecurrance"
-									value="1"
-									tabindex="9"
 									autocomplete="off"
+									tabindex="12"
+									value="1"
 									checked> Recurring
 								  
 							</label>
@@ -321,8 +345,8 @@
 								  	class="pull-right"
 								  	id="one-time"
 								  	name="radioRecurrance"
-								  	tabindex="10"
 									autocomplete="off"
+									tabindex="13"
 								  	value="0"> One Time
 								  
 							</label>
@@ -335,10 +359,15 @@
 				  <hr>
 				  
 				  <div class="form-group form-group-lg">
-					<div class="col-md-offset-2 col-md-8">					
-						<button type="submit" class="btn btn-lg btn-primary btn-block" id="submit-btn" tabindex="11">
-							<?php echo $submit_btn; ?>	
+					<div class="col-md-offset-2 col-md-8">			
+					
+						<button 
+							type="submit" 
+							class="btn btn-lg btn-primary btn-block" 
+							id="submit-btn" 
+							tabindex="14"><?php echo $submit_btn; ?>	
 						</button>		
+						
 					</div>
 					<div class="col-md-2 hidden-xs">
 						&nbsp;
