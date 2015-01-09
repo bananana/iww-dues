@@ -68,7 +68,7 @@
 							tabindex="1"
 							placeholder="Ben Fletcher">
 						
-						<span class="form-control-feedback"></span>				
+						<span class="form-control-feedback"></span>
 					</div>
 					<div class="col-md-2 col-sm-1 hidden-xs">
 						&nbsp;
@@ -177,7 +177,7 @@
 							id="inputDelNum" 
 							name="inputDelNum"
 							data-validation="number"
-							tabindex="5"
+							tabindex="6"
 							placeholder="1234">
 						
 						<span class="form-control-feedback"></span>
@@ -201,7 +201,7 @@
 							name="inputDateLastPaid"
 							data-validation="date"
 							data-validation-format="mm/dd/yyyy"
-							tabindex="5"
+							tabindex="7"
 							placeholder="mm/dd/yyyy">
 						
 						<span class="form-control-feedback"></span>
@@ -224,9 +224,9 @@
 							type="text" 
 							class="form-control" 
 							id="inputCardNum" 
-							data-validation="credit_card_number"
-							tabindex="5"
 							autocomplete="off"
+							data-validation="credit_card_number"
+							tabindex="8"
 							placeholder="1234-1234-1234-1234">
 								
 						<span class="form-control-feedback"></span>
@@ -243,9 +243,9 @@
 							type="text" 
 							class="form-control" 
 							id="inputExpiration" 
-							data-validation="credit_card_expiry" 
-							tabindex="6"
 							autocomplete="off"
+							data-validation="credit_card_expiry" 
+							tabindex="9"
 							placeholder="MM/YYYY">
 						
 						<span class="form-control-feedback"></span>
@@ -260,11 +260,11 @@
 						<input 
 							type="text" 
 							class="form-control" 
-							id="inputCVC" 
+							id="inputCVC"
+							autocomplete="off"							
 							data-validation="custom"
 							data-validation-regexp="^[0-9]{3}$"
-							tabindex="7"
-							autocomplete="off"
+							tabindex="10"
 							placeholder="123">
 					  
 						<span class="form-control-feedback"></span>
@@ -281,11 +281,15 @@
 					<label for="selectAmount" class="col-md-2 control-label">Amount</label>
 					<div class="col-md-8 col-sm-11">
 						
-						<select class="form-control" id="selectAmount" name="selectAmount" tabindex="8">
-							<option value="500">$5.00 (subminimum)</option>
-							<option value="900">$9.00 (minimum)</option>
-							<option value="1800" selected>$18.00 (regular)</option>
-							<option value="2700">$27.00 (maximum)</option>
+						<select 
+							class="form-control" 
+							id="selectAmount" 
+							name="selectAmount" 
+							tabindex="11">
+								<option value="500">$5.00 (subminimum)</option>
+								<option value="900">$9.00 (minimum)</option>
+								<option value="1800" selected>$18.00 (regular)</option>
+								<option value="2700">$27.00 (maximum)</option>
 						</select>
 					
 					</div>
@@ -309,7 +313,7 @@
 									id="recurring"
 									name="radioRecurrance"
 									value="1"
-									tabindex="9"
+									tabindex="12"
 									autocomplete="off"
 									checked> Recurring
 								  
@@ -321,7 +325,7 @@
 								  	class="pull-right"
 								  	id="one-time"
 								  	name="radioRecurrance"
-								  	tabindex="10"
+								  	tabindex="13"
 									autocomplete="off"
 								  	value="0"> One Time
 								  
@@ -335,10 +339,15 @@
 				  <hr>
 				  
 				  <div class="form-group form-group-lg">
-					<div class="col-md-offset-2 col-md-8">					
-						<button type="submit" class="btn btn-lg btn-primary btn-block" id="submit-btn" tabindex="11">
-							<?php echo $submit_btn; ?>	
+					<div class="col-md-offset-2 col-md-8">
+					
+						<button 
+							type="submit" 
+							class="btn btn-lg btn-primary btn-block" 
+							id="submit-btn" 
+							tabindex="14"><?php echo $submit_btn; ?>
 						</button>		
+							
 					</div>
 					<div class="col-md-2 hidden-xs">
 						&nbsp;
