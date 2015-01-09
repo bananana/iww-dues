@@ -164,6 +164,11 @@
 								<span class="glyphicon glyphicon-question-sign"></span>
 							</a>
 						</h3>
+						<!-- Add help buttons instead of links?
+						<a href="#" class="btn btn-info btn-lg" data-toggle="modal" data-target="#XNumModal">
+							<span class="glyphicon glyphicon-question-sign"></span>
+						</a>
+						-->
 					</div>
 				  </div>
 				  <div class="form-group form-group-lg has-feedback">
