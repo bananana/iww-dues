@@ -37,10 +37,9 @@
 <body>
 
 
-<!-- =======================
+<!--
 ---- Content
 ------------------------ -->
-
 <p class="hidden-xs">&nbsp;</p>
 <div class="container">
 	<div class="row">
@@ -178,7 +177,8 @@
 							name="inputIUNum"
 							data-validation="custom"
 							data-validation-optional="true"
-							data-validation-regexp="^[0-9]{3}$"
+							data-validation-regexp="^[1-6][0-9][03]$"
+							data-suggestions="<?php foreach ($IUNumbers as $IU) { echo $IU . ', '; } ?>"
 							tabindex="5"
 							placeholder="460">
 						
@@ -398,17 +398,15 @@
 </div><!-- /container -->
 
 
-<!-- =======================
+<!--
 ---- Modals 
 ------------------------ -->
-
 <?php require_once('./modals.html'); ?>
 
 
-<!-- =======================
+<!-- 
 ---- Scripts 
 ------------------------ -->
-
 <!-- jQuery -->
 <script src="vendor/frameworks/jquery/jquery.min.js"></script>
 
