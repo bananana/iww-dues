@@ -22,6 +22,9 @@
 		.form-control-feedback {
 			margin-top:6px;
 		}
+		.form-error {
+			display:none;
+		}
 	</style>
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -59,7 +62,7 @@
 				  <div class="form-group form-group-lg has-feedback">
 					<label for="inputName" class="col-md-2 control-label">Full Name</label>
 					<div class="col-md-8 col-sm-11">
-						
+
 						<input 
 							type="text" 
 							class="form-control" 
