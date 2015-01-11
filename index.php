@@ -159,16 +159,9 @@
 					
 					</div>
 					<div class="hidden-xs col-sm-2">
-						<h3 class="help-btn">
-							<a href="#" data-toggle="modal" data-target="#XNumModal">
-								<span class="glyphicon glyphicon-question-sign"></span>
-							</a>
-						</h3>
-						<!-- Add help buttons instead of links?
 						<a href="#" class="btn btn-info btn-lg" data-toggle="modal" data-target="#XNumModal">
 							<span class="glyphicon glyphicon-question-sign"></span>
 						</a>
-						-->
 					</div>
 				  </div>
 				  <div class="form-group form-group-lg has-feedback">
