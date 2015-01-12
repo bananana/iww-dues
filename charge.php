@@ -7,12 +7,11 @@ function checkInput($name) { return (isset($name)) ? : "N/A"); }
 // Get necessary input values from the form
 $token  = checkInput($_POST['stripeToken']); // (isset($_POST['stripeToken']) ? $_POST['stripeToken'] : "N/A");
 $email = checkInput($_POST['inputEmail']); // (isset($_POST['inputEmail']) ? $_POST['inputEmail'] : "N/A");
-//$phone = checkInput($_POST['[inputEmail']); // (isset($_POST['inputPhone']) ? $_POST['inputPhone'] : "N/A");
 $XNumber = checkInput($_POST['inputXNum']); // (isset($_POST['inputXNum']) ? $_POST['inputXNum'] : "N/A");
 $IUNumber = checkInput($_POST['inputIUNum']); //(isset($_POST['inputIUNum']) ? $_POST['inputIUNum'] : "N/A");
 $delegateNumber = checkInput($_POST['inputDelNum']); // (isset($_POST['inputDelNum']) ? $_POST['inputDelNum'] : "N/A");
 $dateLastPaid = checkInput($_POST['inputDateLastPaid']; // (isset($_POST['inputDateLastPaid']) ? $_POST['inputDateLastPaid'] : "N/A");
-$recurring = checkInput($_POST['radioRecurrance']; // $_POST['radioRecurrance'];
+$recurring = checkInput($_POST['radioRecurrence']; // $_POST['radioRecurrence'];
 $amount = checkInput($_POST['selectAmound']; //$_POST['selectAmount'];
 
 // Sign up user for recurring dues plan
@@ -53,18 +52,22 @@ else {
 }
 
 // Charge the card
-$charge = Stripe_Charge::create(array(
-	'customer' => $customer->id,
-	'amount'   => $amount,
-	'currency' => $stripe['currency'],
-	'metadata' => array(
-	//	'Phone'		=> $phone,
-		'X Number'	=> $XNumber,
-		'IU Number'	=> $IUNumber,
-		'Delegate Number' => $delegateNumber,
-		'Date Last Paid' => $dateLastPaid
-	)
-));
+try {
+	$charge = Stripe_Charge::create(array(
+		'customer' => $customer->id,
+		'amount'   => $amount,
+		'currency' => $stripe['currency'],
+		'metadata' => array(
+			'X Number'	=> $XNumber,
+			'IU Number'	=> $IUNumber,
+			'Delegate Number' => $delegateNumber,
+			'Date Last Paid' => $dateLastPaid
+		)
+	));
+}
+catch (Stripe_CardError $e) {
+	// The card has been declined
+}
 ?>
 
 <!DOCTYPE html>
