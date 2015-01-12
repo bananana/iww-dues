@@ -71,6 +71,23 @@
 					</h2>
 				</header>
 				<hr>
+				<!--
+				<div class="row clearfix hidden-xs">
+					<div class="col-sm-12">
+						<div class="progress">
+						  <div 
+							class="progress-bar" 
+							role="progressbar" 
+							aria-valuenow="60" 
+							aria-valuemin="0" 
+							aria-valuemax="100" 
+							style="width: 60%;">
+						  </div>
+						</div>
+					</div>
+				</div>
+				<hr>
+				-->
 				
 				<!-- Dues Form -->
 				<form 
@@ -78,8 +95,58 @@
 					id="dues-form" 
 					action="charge.php" 
 					method="post" 
-					role="form">
-				  
+	
+	role="form">
+<!--				  
+				  <div class="form-group form-group-lg">
+					<div class="col-sm-6">
+						<div class="btn-group-vertical btn-group-lg btn-block radio-segmented" data-toggle="buttons">
+							<label class="btn btn-default active" for="radioIncomeSubminimum">
+							
+								<input
+									type="radio"
+									id="radioIncomeSubminimum"
+									name="radioIncome"
+									value="1"
+									tabindex="2"
+									autocomplete="off"> None
+								  
+							</label>
+							<label class="btn btn-default" for="one-time">
+								
+								  <input
+								  	type="radio"
+								  	id="radioIncomeMinimum"
+								  	name="radioIncome"
+								  	tabindex="3"
+									autocomplete="off"> Less than $2,000
+								  
+							</label>
+							<label class="btn btn-default" for="one-time">
+								
+								  <input
+								  	type="radio"
+								  	id="radioIncomeRegular"
+								  	name="radioIncome"
+								  	tabindex="3"
+									autocomplete="off"
+								  	checked> Between $2,000 and $3,500
+								  
+							</label>
+							<label class="btn btn-default" for="one-time">
+								
+								  <input
+								  	type="radio"
+								  	id="radioIncomeMaximum"
+								  	name="radioIncome"
+								  	tabindex="3"
+									autocomplete="off"> More than $3,500
+								  
+							</label>
+						</div>
+					</div>
+				  </div>
+-->
 				  <div class="form-group form-group-lg">
 					<label for="selectAmount" class="control-label col-sm-3">Amount</label>
 					<div class="col-sm-7">
@@ -103,7 +170,7 @@
 							</a>
 						</h2>
 					</div>
-				  </div>
+				  </div>				  
 				  <div class="form-group form-group-lg">
 					<label class="control-label col-sm-3">&nbsp;</label>
 					<div class="col-sm-7">
