@@ -17,7 +17,8 @@
 			background-color:#eee;
 		}
 		.help-btn {
-			margin: 10px 0 0 0;
+			margin: 7px 0 0 0;
+			text-align: center;
 		}
 		.form-control-feedback {
 			margin-top:6px;
@@ -113,7 +114,11 @@
 						<span class="form-control-feedback"></span>						
 					</div>
 					<div class="hidden-xs col-sm-2">
-						&nbsp;
+						<h2 class="help-btn">
+							<a href="#" data-toggle="modal" data-target="#emailModal">
+								<span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+						</h2>
 					</div>
 				  </div>
 				  <!--
@@ -142,7 +147,7 @@
 				  <hr>
 				  			  
 				  <div class="form-group form-group-lg has-feedback">
-					<label class="control-label col-sm-3" for="inputXNum">X #</label>
+					<label class="control-label col-sm-3" for="inputXNum">X Num</label>
 					<div class="col-sm-7">
 
 						<input 
@@ -159,13 +164,15 @@
 					
 					</div>
 					<div class="hidden-xs col-sm-2">
-						<a href="#" class="btn btn-info btn-lg" data-toggle="modal" data-target="#XNumModal">
-							<span class="glyphicon glyphicon-question-sign"></span>
-						</a>
+						<h2 class="help-btn">
+							<a href="#" data-toggle="modal" data-target="#XNumModal">
+								<span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+						</h2>
 					</div>
 				  </div>
 				  <div class="form-group form-group-lg has-feedback">
-					<label class="control-label col-sm-3" for="inputIUNum">IU #</label>
+					<label class="control-label col-sm-3" for="inputIUNum">IU Num</label>
 					<div class="col-sm-7">
 
 						<input 
@@ -183,11 +190,36 @@
 						<span class="form-control-feedback"></span>
 					</div>
 					<div class="hidden-xs col-sm-2">
-						<h3 class="help-btn">
+						<h2 class="help-btn">
 							<a href="#" data-toggle="modal" data-target="#IUNumModal">
 								<span class="glyphicon glyphicon-question-sign"></span>
 							</a>
-						</h3>
+						</h2>
+					</div>
+				  </div>
+				  <!--
+				  <div class="form-group form-group-lg has-feedback">
+					<label class="control-label col-sm-3" for="inputDateLastPaid">Last Paid</label>
+					<div class="col-sm-7">
+
+						<input 
+							type="text" 
+							class="form-control" 
+							id="inputDateLastPaid" 
+							name="inputDateLastPaid"
+							data-validation="date"
+							data-validation-format="mm/dd/yyyy"
+							tabindex="7"
+							placeholder="mm/dd/yyyy">
+						
+						<span class="form-control-feedback"></span>
+					</div>
+					<div class="hidden-xs col-sm-2">
+						<h2 class="help-btn">
+							<a href="#" data-toggle="modal" data-target="#DateLastPaidModal">
+								<span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+						</h2>
 					</div>
 				  </div>
 				  <div class="form-group form-group-lg has-feedback">
@@ -206,41 +238,18 @@
 						<span class="form-control-feedback"></span>
 					</div>
 					<div class="hidden-xs col-sm-2">
-						<h3 class="help-btn">
+						<h2 class="help-btn">
 							<a href="#" data-toggle="modal" data-target="#DelNumModal">
 								<span class="glyphicon glyphicon-question-sign"></span>
 							</a>
-						</h3>
+						</h2>
 					</div>
 				  </div>
-				  <div class="form-group form-group-lg has-feedback">
-					<label class="control-label col-sm-3" for="inputDateLastPaid">Last Paid</label>
-					<div class="col-sm-7">
-
-						<input 
-							type="text" 
-							class="form-control" 
-							id="inputDateLastPaid" 
-							name="inputDateLastPaid"
-							data-validation="date"
-							data-validation-format="mm/dd/yyyy"
-							tabindex="7"
-							placeholder="mm/dd/yyyy">
-						
-						<span class="form-control-feedback"></span>
-					</div>
-					<div class="hidden-xs col-sm-2">
-						<h3 class="help-btn">
-							<a href="#" data-toggle="modal" data-target="#DateLastPaidModal">
-								<span class="glyphicon glyphicon-question-sign"></span>
-							</a>
-						</h3>
-					</div>
-				  </div>
+				  -->
 				  <hr>
 				  
 				  <div class="form-group form-group-lg has-feedback">
-					<label class="control-label col-sm-3" for="inputCardNum">Card #</label>
+					<label class="control-label col-sm-3" for="inputCardNum">Card Num</label>
 					<div class="col-sm-7">
 							
 						<input 
@@ -294,11 +303,11 @@
 						<span class="form-control-feedback"></span>
 					</div>
 					<div class="hidden-xs col-sm-2">
-						<h3 class="help-btn">
+						<h2 class="help-btn">
 							<a href="#" data-toggle="modal" data-target="#CVCModal">
 								<span class="glyphicon glyphicon-question-sign"></span>
 							</a>
-						</h3>
+						</h2>
 					</div>
 				  </div>				  
 				  <div class="form-group form-group-lg">
@@ -318,11 +327,11 @@
 					
 					</div>
 					<div class="hidden-xs col-sm-2">
-						<h3 class="help-btn">
+						<h2 class="help-btn">
 							<a href="#" data-toggle="modal" data-target="#DuesAmountModal">
 								<span class="glyphicon glyphicon-question-sign"></span>
 							</a>
-						</h3>
+						</h2>
 					</div>
 				  </div>
 				  <div class="form-group form-group-lg">
