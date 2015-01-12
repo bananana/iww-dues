@@ -1,3 +1,65 @@
+<!-- Dues -->
+<div class="modal fade" id="DuesAmountModal" tabindex="-1" role="dialog" aria-labelledby="DuesAmountModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="DuesAmountModalLabel">IWW Dues</h4>
+      </div>
+      <div class="modal-body">
+		<p>The monthly dues rates for the IWW are below. All amounts are in US dollars.</p>
+		<table class="table table-bordered">
+			<tr class="active"><th>Type</th><th>Amount</th><th>Condition</th></tr>
+			<tr><td>Subminimum</td><td>$5.00</td><td>If you are currently unemployed</td></tr>
+			<tr><td>Minimum</td><td>$9.00</td><td>If you make less than $2,000.00 per month</td></tr>
+			<tr><td>Regular</td><td>$18.00</td><td>If you make between $2,000.00-$3,500.00 per month</td></tr>
+			<tr><td>Maximum</td><td>$27.00</td><td>If you make more than $3,500.00 per month</td></tr>
+		</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Recurrence-->
+<div class="modal fade" id="RecurrenceModal" tabindex="-1" role="dialog" aria-labelledby="RecurrenceModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="RecurrenceModalLabel">Recurring vs. One Time Dues Payment</h4>
+      </div>
+      <div class="modal-body">
+		<p>Recurring dues will be collected monthly.<br> You will be able to canel or modify your plan any time using your email.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Email -->
+<div class="modal fade" id="EmailModal" tabindex="-1" role="dialog" aria-labelledby="EmailModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="EmailModalLabel">Email</h4>
+      </div>
+      <div class="modal-body">
+		<p>You will be able to use an email address you enter here to cancel or edit a recurring dues subscription. If there is any issue with your payment, we will use this email address to communicate all the details to you.</p> 
+		<p>We <strong>will NOT</strong> send you spam or sell your email to 3<sup>rd</sup> parties.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- X Number -->
 <div class="modal fade" id="XNumModal" tabindex="-1" role="dialog" aria-labelledby="XNumModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -7,16 +69,8 @@
         <h4 class="modal-title" id="XNumModalLabel">X Number</h4>
       </div>
       <div class="modal-body">
-		<table class="table table-bordered">
-			<tr>
-				<th class="active">If you are currently signing up:</th>
-				<th class="active">If you're already a member of IWW:</th>
-			</tr>
-			<tr>
-				<td>This field is not required. X Number identifies your red card and proves your membership.</td>
-				<td>You can find your X Number on the 1<sup>st</sup> page of your red card. It starts with an <strong>X</strong> followed by 6 digits.</td>
-			</tr>
-		</table>
+		<p>You can find your X Number on the 1<sup>st</sup> page of your membership card.<br> It starts with an "X" followed by 6 numbers.</p>
+		<img src="red_card.png" class="img-responsive" alt="Red Card">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -34,7 +88,8 @@
         <h4 class="modal-title" id="IUNumModalLabel">Industrial Union Number</h4>
       </div>
       <div class="modal-body">
-		[picture of red card]
+		<p>You can find your Industrial Union Number on the 1<sup>st</sup> page of your membership card.<br> It is always a 3 digit number.<p>
+		<img src="red_card.png" class="img-responsive" alt="Red Card">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -89,31 +144,6 @@
       </div>
       <div class="modal-body">
 		This is a 3 digit code on the back of your credit or debit card.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Dues -->
-<div class="modal fade" id="DuesAmountModal" tabindex="-1" role="dialog" aria-labelledby="DuesAmountModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="DuesAmountModalLabel">IWW Dues</h4>
-      </div>
-      <div class="modal-body">
-		<p>The monthly dues rates for the IWW are below. All amounts are in US dollars.</p>
-		<table class="table table-bordered">
-			<tr class="active"><th>Type</th><th>Amount</th><th>Condition</th></tr>
-			<tr><td>Subminimum</td><td>$5.00</td><td>If you are currently unemployed</td></tr>
-			<tr><td>Minimum</td><td>$9.00</td><td>If you make less than $2,000.00 per month</td></tr>
-			<tr><td>Regular</td><td>$18.00</td><td>If you make between $2,000.00-$3,500.00 per month</td></tr>
-			<tr><td>Maximum</td><td>$27.00</td><td>If you make more than $3,500.00 per month</td></tr>
-		</table>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

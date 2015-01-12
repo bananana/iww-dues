@@ -80,6 +80,71 @@
 					method="post" 
 					role="form">
 				  
+				  <div class="form-group form-group-lg">
+					<label for="selectAmount" class="control-label col-sm-3">Amount</label>
+					<div class="col-sm-7">
+						
+						<select 
+							class="form-control" 
+							id="selectAmount" 
+							name="selectAmount" 
+							tabindex="1">
+								<option value="500">$5.00 (subminimum)</option>
+								<option value="900">$9.00 (minimum)</option>
+								<option value="1800" selected>$18.00 (regular)</option>
+								<option value="2700">$27.00 (maximum)</option>
+						</select>
+					
+					</div>
+					<div class="hidden-xs col-sm-2">
+						<h2 class="help-btn">
+							<a href="#" data-toggle="modal" data-target="#DuesAmountModal">
+								<span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+						</h2>
+					</div>
+				  </div>
+				  <div class="form-group form-group-lg">
+					<label class="control-label col-sm-3">&nbsp;</label>
+					<div class="col-sm-7">
+						<div class="btn-group btn-group-lg radio-segmented" data-toggle="buttons" style="width:100%">
+							<label class="btn btn-default active" for="recurring" style="width:50%">
+							
+								<input
+									type="radio"
+									class="pull-left"
+									id="recurring"
+									name="radioRecurrence"
+									value="1"
+									tabindex="2"
+									autocomplete="off"
+									checked> Recurring
+								  
+							</label>
+							<label class="btn btn-default" for="one-time" style="width:50%">
+								
+								  <input
+								  	type="radio"
+								  	class="pull-right"
+								  	id="one-time"
+								  	name="radioRecurrence"
+								  	tabindex="3"
+									autocomplete="off"
+								  	value="0"> One Time
+								  
+							</label>
+						</div>
+					</div>
+					<div class="hidden-xs col-sm-2">
+						<h2 class="help-btn">
+							<a href="#" data-toggle="modal" data-target="#RecurrenceModal">
+								<span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+						</h2>
+					</div>
+				  </div>
+				  <hr>
+				  
 				  <div class="form-group form-group-lg has-feedback">
 					<label for="inputName" class="control-label col-sm-3">Full Name</label>
 					<div class="col-sm-7">
@@ -89,7 +154,7 @@
 							class="form-control" 
 							id="inputName"
 							data-validation="required"
-							tabindex="1"
+							tabindex="4"
 							placeholder="Ben Fletcher">
 						
 						<span class="form-control-feedback"></span>
@@ -108,42 +173,19 @@
 							id="inputEmail" 
 							name="inputEmail"
 							data-validation="email" 
-							tabindex="2"
+							tabindex="5"
 							placeholder="email@service.com">
 							
 						<span class="form-control-feedback"></span>						
 					</div>
 					<div class="hidden-xs col-sm-2">
 						<h2 class="help-btn">
-							<a href="#" data-toggle="modal" data-target="#emailModal">
+							<a href="#" data-toggle="modal" data-target="#EmailModal">
 								<span class="glyphicon glyphicon-question-sign"></span>
 							</a>
 						</h2>
 					</div>
 				  </div>
-				  <!--
-				  <div class="form-group form-group-lg has-feedback">
-					<label for="inputPhone" class="control-label col-sm-3">Phone</label>
-					<div class="col-sm-7">
-					
-						<input 
-							type="text" 
-							class="form-control" 
-							id="inputPhone" 
-							name="inputPhone"
-							tabindex="3"
-							data-validation="custom"
-							data-validation-optional="true"
-							data-validation-regexp="^[0-9]{3}[-. ]?[0-9]{3}[-. ]?[0-9]{4}$"
-							placeholder="123-456-7890">
-						
-						<span class="form-control-feedback"></span>
-					</div>
-					<div class="hidden-xs col-sm-2">
-						&nbsp;
-					</div>
-				  </div>
-				  -->
 				  <hr>
 				  			  
 				  <div class="form-group form-group-lg has-feedback">
@@ -157,7 +199,7 @@
 							name="inputXNum"
 							data-validation="custom"
 							data-validation-regexp="^(x|X)?[0-9]{6}$"
-							tabindex="4"
+							tabindex="6"
 							placeholder="X123456">
 						
 						<span class="form-control-feedback"></span>
@@ -184,7 +226,7 @@
 							data-validation-optional="true"
 							data-validation-regexp="^[1-6][0-9][03]$"
 							data-suggestions="<?php foreach ($IUNumbers as $IU) { echo $IU . ', '; } ?>"
-							tabindex="5"
+							tabindex="7"
 							placeholder="460">
 						
 						<span class="form-control-feedback"></span>
@@ -209,7 +251,7 @@
 							name="inputDateLastPaid"
 							data-validation="date"
 							data-validation-format="mm/dd/yyyy"
-							tabindex="7"
+							tabindex="8"
 							placeholder="mm/dd/yyyy">
 						
 						<span class="form-control-feedback"></span>
@@ -224,7 +266,7 @@
 				  </div>
 				  <div class="form-group form-group-lg has-feedback">
 					<label class="control-label col-sm-3" for="inputDelNum">Delegate #</label>
-					<div class="col-sm-7">
+					<div class="col-sm-9">
 
 						<input 
 							type="text" 
@@ -232,7 +274,7 @@
 							id="inputDelNum" 
 							name="inputDelNum"
 							data-validation="number"
-							tabindex="6"
+							tabindex="9"
 							placeholder="1234">
 						
 						<span class="form-control-feedback"></span>
@@ -310,65 +352,6 @@
 						</h2>
 					</div>
 				  </div>				  
-				  <div class="form-group form-group-lg">
-					<label for="selectAmount" class="control-label col-sm-3">Amount</label>
-					<div class="col-sm-7">
-						
-						<select 
-							class="form-control" 
-							id="selectAmount" 
-							name="selectAmount" 
-							tabindex="11">
-								<option value="500">$5.00 (subminimum)</option>
-								<option value="900">$9.00 (minimum)</option>
-								<option value="1800" selected>$18.00 (regular)</option>
-								<option value="2700">$27.00 (maximum)</option>
-						</select>
-					
-					</div>
-					<div class="hidden-xs col-sm-2">
-						<h2 class="help-btn">
-							<a href="#" data-toggle="modal" data-target="#DuesAmountModal">
-								<span class="glyphicon glyphicon-question-sign"></span>
-							</a>
-						</h2>
-					</div>
-				  </div>
-				  <div class="form-group form-group-lg">
-					<label for="recurrance" class="control-label col-sm-3">&nbsp;</label>
-					<div class="col-sm-7">
-						<div class="btn-group btn-group-lg radio-segmented" data-toggle="buttons" style="width:100%">
-							<label class="btn btn-default active" for="recurring" style="width:50%">
-							
-								<input
-									type="radio"
-									class="pull-left"
-									id="recurring"
-									name="radioRecurrance"
-									value="1"
-									tabindex="12"
-									autocomplete="off"
-									checked> Recurring
-								  
-							</label>
-							<label class="btn btn-default" for="one-time" style="width:50%">
-								
-								  <input
-								  	type="radio"
-								  	class="pull-right"
-								  	id="one-time"
-								  	name="radioRecurrance"
-								  	tabindex="13"
-									autocomplete="off"
-								  	value="0"> One Time
-								  
-							</label>
-						</div>
-					</div>
-					<div class="hidden-xs col-sm-2">
-						&nbsp;
-					</div>
-				  </div>
 				  <hr>
 				  
 				  <div class="form-group form-group-lg">
@@ -378,7 +361,7 @@
 							type="submit" 
 							class="btn btn-lg btn-primary btn-block" 
 							id="submit-btn" 
-							tabindex="14"><?php echo $submitBtn; ?>
+							tabindex="11"><?php echo $submitBtn; ?>
 						</button>		
 							
 					</div>
@@ -471,11 +454,11 @@ $.validate({
 	onSuccess : function() {
 		//console.log('Form is valid');
 		
-		// Split the expiration date into month (index 0) and year (index 1)
-		var $expiration = $('#inputExpiration').val().split("/");
-		
 		// Disable submit button
 		$('#submit-btn').prop('disabled', true);
+		
+		// Split the expiration date into month (index 0) and year (index 1)
+		var $expiration = $('#inputExpiration').val().split("/");
 		
 		// Create Stripe single use token
 		Stripe.card.createToken({
