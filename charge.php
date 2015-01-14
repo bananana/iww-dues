@@ -2,7 +2,7 @@
 require_once(dirname(__FILE__) . '/config.php');
 
 // Function to automate the isset() check for input values
-function checkInput($name) { return (isset($name)) ? : "N/A"); }
+function checkInput($name) { return (isset($name)) ? $name : "N/A"); }
 
 // Get necessary input values from the form
 $token  = checkInput($_POST['stripeToken']); // (isset($_POST['stripeToken']) ? $_POST['stripeToken'] : "N/A");
@@ -49,24 +49,24 @@ else {
 		'card'  => $token,
 		'email' => $email		
 	));
-}
-
-// Charge the card
-try {
-	$charge = Stripe_Charge::create(array(
-		'customer' => $customer->id,
-		'amount'   => $amount,
-		'currency' => $stripe['currency'],
-		'metadata' => array(
-			'X Number'	=> $XNumber,
-			'IU Number'	=> $IUNumber,
-			'Delegate Number' => $delegateNumber,
-			'Date Last Paid' => $dateLastPaid
-		)
-	));
-}
-catch (Stripe_CardError $e) {
-	// The card has been declined
+	
+	// Charge the card
+	try {
+		$charge = Stripe_Charge::create(array(
+			'customer' => $customer->id,
+			'amount'   => $amount,
+			'currency' => $stripe['currency'],
+			'metadata' => array(
+				'X Number'	=> $XNumber,
+				'IU Number'	=> $IUNumber,
+				'Delegate Number' => $delegateNumber,
+				'Date Last Paid' => $dateLastPaid
+			)
+		));
+	}
+	catch (Stripe_CardError $e) {
+		// The card has been declined
+	}
 }
 ?>
 

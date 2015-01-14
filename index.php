@@ -95,8 +95,7 @@
 					id="dues-form" 
 					action="charge.php" 
 					method="post" 
-	
-	role="form">
+					role="form">
 <!--				  
 				  <div class="form-group form-group-lg">
 					<div class="col-sm-6">
@@ -512,6 +511,29 @@ $.formUtils.addValidator({
 	errorMessageKey : 'badCreditCardEpiry'
 });
 
+// Dynamic form feedback
+var feedbackClasses = {
+	initial: 'form-control-feedback',
+	success: 'glyphicon glyphicon-ok form-control-feedback',
+	failure: 'glyphicon glyphicon-warning-sign form-control-feedback'
+}
+$('input').bind('validation', function(evt, isValid) {
+	var $feedbackElem = $(this).parent().children('.form-control-feedback');
+	
+	// If required and valid
+	if(isValid) {
+		$feedbackElem.removeClass().addClass(feedbackClasses['success']);
+	}
+	// If optional and empty (not valid)
+	else if(!isValid && $(this).attr('data-validation-optional') == "true" && $(this).val() == "") {
+		$feedbackElem.removeClass().addClass(feedbackClasses['initial']);
+	}
+	// If required and not valid
+	else{
+		$feedbackElem.removeClass().addClass(feedbackClasses['failure']);
+	}
+});
+
 // Validate the form, if successful, proceed to token creation
 $.validate({
 	form : '#dues-form',
@@ -538,29 +560,6 @@ $.validate({
 		
 		// Prevent the form from submitting with the default action
 		return false;
-	}
-});
-
-// Dynamic form feedback
-var feedbackClasses = {
-	initial: 'form-control-feedback',
-	success: 'glyphicon glyphicon-ok form-control-feedback',
-	failure: 'glyphicon glyphicon-warning-sign form-control-feedback'
-}
-$('input').bind('validation', function(evt, isValid) {
-	var $feedbackElem = $(this).parent().children('.form-control-feedback');
-	
-	// If required and valid
-	if(isValid) {
-		$feedbackElem.removeClass().addClass(feedbackClasses['success']);
-	}
-	// If optional and empty (not valid)
-	else if(!isValid && $(this).attr('data-validation-optional') == "true" && $(this).val() == "") {
-		$feedbackElem.removeClass().addClass(feedbackClasses['initial']);
-	}
-	// If required and not valid
-	else{
-		$feedbackElem.removeClass().addClass(feedbackClasses['failure']);
 	}
 });
 
