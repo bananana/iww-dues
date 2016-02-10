@@ -1,7 +1,7 @@
 {
-    "name": "bananana/iww-dues",
+    "name": "bananana/iww460-dues",
     "license": "MIT",
-    "description": "Dues payment system for IWW",	
+    "description": "Dues payment system for NYC IWW IU460",	
     "authors": [
         {
             "name": "Pavel Mamontov",
@@ -13,21 +13,21 @@
             "type": "package",
             "package": {
                 "name": "victorjonsson/jQuery-Form-Validator",
-                "version": "2.1.47",
+                "version": "2.2.8",
                 "dist": {
-                    "url": "https://github.com/victorjonsson/jQuery-Form-Validator/archive/2.1.47.zip",
+                    "url": "https://github.com/victorjonsson/jQuery-Form-Validator/archive/2.2.8.zip",
                     "type": "zip"
                 }				
             }
         }
     ],
     "require": {
-        "twitter/bootstrap": "~3.3",
-        "stripe/stripe-php": "~1.17",
+        "twitter/bootstrap": "~3",
+        "stripe/stripe-php": "~3",
         "afarkas/html5shiv": "~3.7",
         "rogeriopradoj/respond": "~1.4",
         "frameworks/jquery": "~2.1",
-	"victorjonsson/jQuery-Form-Validator": "2.1.47"
+    	"victorjonsson/jQuery-Form-Validator": "2.2.8"
     },
     "minimum-stability": "stable"
 }
