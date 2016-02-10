@@ -22,13 +22,15 @@ You can see an example of it being used in production [here](iww460.org).
 
     mv config-example.php config.php
 
-Use your favorite text editor to edit *config.php*. Under `// General Settings` modify the config values if necessary. Under `// Stripe Settings` add both testing and production API keys (you can find them in Account Settings under "API Keys" tab on Stripe's website). 
+Use your favorite text editor to edit *config.php*. 
+Under `// General Settings` modify the config values if necessary. 
+Under `// Stripe Settings` add both testing and production API keys (you can find them in Account Settings under "API Keys" tab on Stripe's website). 
 
 5) Before you're readity to move to production server, **make sure that SSL/TLS is setup and working correctly**.
 
 6) Copy application files to the server using either `scp`, `rsync` or whatever else you prefer.
 
-7) Edit *config.php* on the server and under `// Mode` swich the $testing variable to false.
+7) Edit *config.php* on the server and under `// Mode` switch the $testing variable to false.
 
 # To Do
 
