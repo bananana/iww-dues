@@ -1,45 +1,38 @@
 # IWW Dues Payment System
 
-This is a small and simple dues payments system developed specifically for [IWW](iww.org) (Industrian Workers of the World) union. It is written in php and uses Stripe to handle all transactions.
+This is a small and simple dues payment system developed specifically for [Brandworkers](brandworkers.org) and IWW IU460. It is written in php and uses Stripe to handle all transactions.
 
-The application is still under heavy development, so don't use it in production just yet.
+You can see an example of it being used in production [here](iww460.org).
 
 # Installation
 
-You'll need apache (or nginx), php and composer. *When you go live SSL/TLS is absolutely required*.
+**Note:** Your production server needs to have either Apache or nginx and php5. You should set up and configure that, if you haven't already. Also, in order to use Stripe in production you need and SSL/TLS certificate on your server. To get one you can use either [cloudflare](https://www.cloudflare.com/) or [Let's Encrypt](https://letsencrypt.org/). Both of those services offer high grade free certificates. Specific details for setting up a server and SSL/TLS encryption are beyond the scope of this document.
 
-1) Install a web server and php if you haven't already. Don't forget to configure php for your specific setup.
+1) Go to [Stripe.com](https://stripe.com/) and setup and account.
 
-2) [Install Composer](https://getcomposer.org/doc/00-intro.md#globally) dependency manager if you don't have it already. 
+2) [Install Composer](https://getcomposer.org/doc/00-intro.md#globally) dependency manager on your development machine, if you don't have it already.
 
-3) Download *iww-dues* and get its dependencies:
+3) Clone the repo to your development machine and get all the dependencies:
 
-    cd /var/www
     git clone https://github.com/bananana/iww-dues
     cd iww-dues
     composer update
 
-4) Go to [Stripe.com](https://stripe.com/) and setup and account.
-
-5) Setup *iww-dues* config file:
+4) Configure the application:
 
     mv config-example.php config.php
 
-Use your favorite text editor to edit config.php. Add values specific to you and, most importantly, add the secret and publishable API keys in $stripe array. You can find them in Account Settings under "API Keys" tab. 
+Use your favorite text editor to edit *config.php*. 
+Under `// General Settings` modify the config values if necessary. 
+Under `// Stripe Settings` add both testing and production API keys (you can find them in Account Settings under "API Keys" tab on Stripe's website). 
 
-If you are testing or developing, use test keys. When you go live don't forget to change the keys to live ones.
+5) Before you're readity to move to production server, **make sure that SSL/TLS is setup and working correctly**.
 
-6) **Before going live, setup SSL/TLS cert on your server.** You shouldn't do this just yet, wait for a stable release. Contribute to the project if you can.
+6) Copy application files to the server using either `scp`, `rsync` or whatever else you prefer.
+
+7) Edit *config.php* on the server and under `// Mode` switch the $testing variable to false.
 
 # To Do
 
-- Clean up the interface
-- Multi-step form with progress bar, current one is too long
-- Setup unit testing (simpletest?)
 - Better error handling
-- Centralize all settings in config.php
 - Get picture of membership card for better directions
-- Better documentation
-
-
-
